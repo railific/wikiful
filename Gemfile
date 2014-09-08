@@ -41,3 +41,6 @@ gem 'spring',        group: :development
 
 gem 'faker'
 
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
+gem 'therubyracer'
