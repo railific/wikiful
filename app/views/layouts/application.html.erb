@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <div class="navbar navbar-fixed-top">
+  <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
         <%= link_to "Wikiful", root_path, :class => "brand" %>
@@ -23,10 +23,8 @@
 	
   <div class="container">
     <div class="row">
-      <div class="span9">
-      	<%= yield %>
-      </div>
-	  <div class="span3 sidebar">
+      <div class="col-md-9"><%= yield %></div>
+	  <div class="col-md-3 sidebar">
 	    <div class="my-wiki-site">
 	      <h4>My Wikiful</h4>
 	      <ul>
@@ -43,7 +41,7 @@
 	    </div>
 	    <div class="about">
 	      <h4>About Wikiful</h4>
-	      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blah Blah Blah</p>
+	      <p>Lorem ipsum Blah Blah Blah</p>
 	    </div>
 	  </div>
     </div>
