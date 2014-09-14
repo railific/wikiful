@@ -1,15 +1,32 @@
-<h1>Welcome to Wikiful. Yet another Wiki :)</h1>
 
-<h2>Recent Stuff</h2>
 
-  <% @recent_articles.each do |article| %>
-    <h3><%= link_to article.title, article %></h3>
-    <p>Published: <%= article.created_at.strftime('%d, %b, %Y') %></p>
-    <p>Filed under: <% article.categories.each do |category| %>
-	
-      <%= link_to category.name, category %>&nbsp;<% end %>
-      <p><%= truncate(article.content, length: 100) %></p></br>
 
-  <% end %>
+<div class="container">
+  <div class="row">
+	  <div class="col-md-2 sidebar">
+	    <div class="categories-sidebar">
+	      <h4>Categories</h4>
+		    <div class="btn-group-vertical">
+	        <% @categories.each do |category| %>
+	          <%= link_to category.name, category, class: is_active?(category, "btn") %>
+	        <% end %>
+	        </div>
+		  </div>
+	    </div>
+    <div class="col-md-10">
+	  <h1>Welcome to Wikiful. Yet another Wiki :)</h1>
+	  <h2>Recent Stuff</h2>
+	  <% @recent_articles.each do |article| %>
+	    <h3><%= link_to article.title, article %></h3>
+	    Published: <%= article.created_at.strftime('%d, %b, %Y') %>&nbsp;&nbsp;&nbsp;
+	    Category: <% article.categories.each do |category| %>
+	                <%= link_to category.name, category %>&nbsp;
+	              <% end %>
+	      </br></br><p><em><%= truncate(article.content, length: 100) %></em></p></br>
+
+	  <% end %>
+    </div>
+  </div>
+</div>
 
 

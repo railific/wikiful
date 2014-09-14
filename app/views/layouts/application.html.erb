@@ -12,39 +12,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="nav navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="navbar-inner">
       <div class="container">
-        <%= link_to "Wikiful", root_path, :class => "brand" %>
-        <div style="float: right;">Eventually log in/out and sign up links will go here</div>
+ 	    <div class="btn-group"> 
+          <%= link_to "Wikiful Home", root_path, class: is_active?(root_path, "brand btn btn-default navbar-btn") %>        
+          <%= link_to "Articles", articles_path, class: is_active?(articles_path, "btn btn-default navbar-btn") %>
+          <%= link_to "Categories", categories_path, class: is_active?(categories_path, "btn btn-default navbar-btn") %>
+	    </div>	
+
+        <%= link_to "New", new_article_path, class: is_active?(new_article_path, "btn btn-default navbar-btn") %>
+
+        <div class="nav navbar-btn navbar-nav navbar-right">
+	      <button class="btn btn-default dropdown-toggle" type="button" id="about" data-toggle="dropdown">     
+		    About<span class="caret"></span> 
+		  </button>
+		  <ul class="dropdown-menu role="menu>
+		    <li class="li-pad">Wikiful is yet another wiki.</li>
+		    <li>If you are unhappy about it's lack of features</li>
+		    <li>you are welcome to take it and get forked.</li>
+		  </ul>
+		</div>
       </div>
-    </div>
+    </div>  
   </div>
-	
-  <div class="container">
-    <div class="row">
-      <div class="col-md-9"><%= yield %></div>
-	  <div class="col-md-3 sidebar">
-	    <div class="my-wiki-site">
-	      <h4>My Wikiful</h4>
-	      <ul>
-	        <li><%= link_to "Write a Wiki", new_article_path %></li>
-	      </ul>
-	    </div>
-	    <div class="categories-sidebar">
-	      <h4>Categories</h4>
-	      <ul>
-	        <% @categories.each do |category| %>
-	          <li><%= link_to category.name, category %></li>
-	        <% end %>
-	      </ul>
-	    </div>
-	    <div class="about">
-	      <h4>About Wikiful</h4>
-	      <p>Lorem ipsum Blah Blah Blah</p>
-	    </div>
-	  </div>
-    </div>
-  </div>
+  <%= yield %>	
+
 </body>
 </html>

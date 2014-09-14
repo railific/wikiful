@@ -8,4 +8,7 @@ class ApplicationController < ActionController::Base
   def get_categories
     @categories = Category.all.order(:name)
   end
+  def articles_count
+    Article.all.count
+  end
 end
