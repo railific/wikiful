@@ -14,10 +14,10 @@
     </div>
     <div class="col-md-2 col-md-pull-10 sidebar">
       <div class="categories-sidebar">
-        <h4>Categories</h4>
+        <h4 align="center">Categories</h4>
   	    <div class="btn-group-vertical">
           <% @categories.each do |category| %>
-            <%= link_to category.name, category, class: is_active?(category, "btn") %>
+            <%= link_to category.name, category, class: is_active?(category, "btn btn-default") %>
           <% end %>
           </div>
   	  </div>
