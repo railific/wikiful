@@ -1,4 +1,4 @@
-<div>
+
   <h1><%= @category.name %></h1>
   <p>Created <%= @category.created_at.strftime('%d, %b, %Y') %></p>
   <h3>Articles under this category</h3>
@@ -7,5 +7,3 @@
       <p><%= link_to article.title, article %></p>
     <% end %>
   </p>
-
-</div>

@@ -27,16 +27,20 @@
 	      <button class="btn btn-default dropdown-toggle" type="button" id="about" data-toggle="dropdown">     
 		    About<span class="caret"></span> 
 		  </button>
-		  <ul class="dropdown-menu role="menu>
-		    <li class="li-pad">Wikiful is yet another wiki.</li>
-		    <li>If you are unhappy about it's lack of features</li>
-		    <li>you are welcome to take it and get forked.</li>
-		  </ul>
+		  <div class="dropdown dropdown-menu role="menu>
+			<p>
+		      Wikiful is yet another wiki.</br>
+		      If you are unhappy about it's</br> 
+		      lack of features you are welcome to</br>
+		      take it and get forked.
+			</p>
+		  </div>
 		</div>
       </div>
     </div>  
   </div>
-  <%= yield %>	
-
+  <div class="container">
+    <%= yield %>	
+  </div>
 </body>
 </html>
