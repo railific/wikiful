@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
   
-  belongs_to :users
+  belongs_to :user
   has_many :article_categories
   has_many :categories, through: :article_categories
 
