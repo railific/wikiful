@@ -1,6 +1,6 @@
 
   <h1><%= @category.name %></h1>
-  <p>Created <%= @category.created_at.strftime('%d, %b, %Y') %></p>
+  <p><strong>Created:</strong> <em><%= @category.created_at.strftime('%d, %b, %Y') %></em></p>
   <h3>Articles under this category</h3>
   <p>
     <% @category.articles.order(:updated_at).each do |article| %>
