@@ -15,19 +15,15 @@
   <div class="nav navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="navbar-inner">
       <div class="container">
+	    <a class="navbar-brand">Wikiful</a>
  	    <div class="btn-group"> 
-          <%= link_to "Wikiful Home", root_path, class: is_active?(root_path, "brand btn btn-default navbar-btn") %>        
+          <%= link_to "Home", root_path, class: is_active?(root_path, "brand btn btn-default navbar-btn") %>        
           <%= link_to "Articles", articles_path, class: is_active?(articles_path, "btn btn-default navbar-btn") %>
           <%= link_to "Categories", categories_path, class: is_active?(categories_path, "btn btn-default navbar-btn") %>
-	    </div>	
-
-        <%= link_to "New", new_article_path, class: is_active?(new_article_path, "btn btn-default navbar-btn") %>
-
-        <div class="nav navbar-btn navbar-nav navbar-right">
-	      <button class="btn btn-default dropdown-toggle" type="button" id="about" data-toggle="dropdown">     
-		    About<span class="caret"></span> 
+	      <button class="btn btn-default navbar-btn dropdown-toggle" type="button" data-toggle="dropdown">     
+		    About <span class="caret"></span> 
 		  </button>
-		  <div class="dropdown dropdown-menu role="menu>
+		  <div class="dropdown-menu pull-right" role="menu">
 			<p>
 		      Wikiful is yet another wiki.</br>
 		      If you are unhappy about it's</br> 
@@ -35,18 +31,32 @@
 		      take it and get forked.
 			</p>
 		  </div>
-		</div>
+	    </div>
+        <div class="btn-group">
+      	  <%= link_to "New", new_article_path, class: is_active?(new_article_path, "btn btn-default navbar-btn") %>
+      	</div>
+        <div class="navbar-right">
+
+            <% if current_user %>
+              <p class="navbar-text"><%= current_user.email %></p>
+              <%= link_to "Log Out", logout_path, :class => 'btn btn-primary navbar-btn pull-right' %>
+            <% else %>
+              <%= link_to "Sign Up", signup_path, class: is_active?(new_user_path, "btn btn-default navbar-btn btn-mini") %>
+              <%= link_to "Log In", login_path, class: is_active?(new_session_path, "btn btn-default navbar-btn btn-mini") %>
+            <% end %>
+
+	    </div>
       </div>
     </div>  
-  </div>
+  </div>                  <!-- end of NavBar -->
   <div class="container">
-  <div class="row">
-    <div class="span4">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, id: "flash_#{name}" %>
-      <% end %>
+    <div class="row">
+      <div class="col-md-4">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, id: "flash_#{name}" %>
+        <% end %>
+      </div>
     </div>
-   </div>
     <%= yield %>	
   </div>
 </body>

@@ -1,8 +1,8 @@
 
   <div class="row">
     <div class="col-md-offset-1 col-md-9 col-md-push-2">
-	  <h1>Welcome to Wikiful. Yet another Wiki :)</h1>
-	  <h2>Recent Stuff</h2>
+	  <h2>Welcome to Wikiful</h2>
+	  <h3>Recent Stuff</h3>
 	  <% @recent_articles.each do |article| %>
 	    <h3><%= link_to article.title, article %></h3>
 	    <strong>Published:</strong> <em><%= article.created_at.strftime('%d, %b, %Y') %></em>&nbsp;&nbsp;&nbsp;
@@ -14,8 +14,9 @@
     </div>
     <div class="col-md-2 col-md-pull-10 sidebar">
       <div class="categories-sidebar">
-        <h4 align="center">Categories</h4>
+
   	    <div class="btn-group-vertical">
+        <h4 class="btn btn-default disabled">Categories</h4>
           <% @categories.each do |category| %>
             <%= link_to category.name, category, class: is_active?(category, "btn btn-default") %>
           <% end %>

@@ -4,7 +4,7 @@ module ApplicationHelper
     if current_page?(link_path)
       string + " active"
     else
-      string + ""
+      string
     end
   end
 end
