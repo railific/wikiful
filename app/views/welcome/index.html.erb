@@ -1,20 +1,25 @@
 
   <div class="row">
-    <div class="col-md-offset-1 col-md-9 col-md-push-2">
-	  <h2>Welcome to Wikiful</h2>
-	  <h3>Recent Stuff</h3>
+    <h2 class="text-center">Welcome to Wikiful</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-offset-1 col-md-9 col-md-push-2 ">
+	  <h5>Recent Stuff</h5>
 	  <% @recent_articles.each do |article| %>
+	  <div class="thumbnail">
+		<div class="caption">
 	    <h3><%= link_to article.title, article %></h3>
-	    <strong>Published:</strong> <em><%= article.created_at.strftime('%d, %b, %Y') %></em>&nbsp;&nbsp;&nbsp;
+	    <p><strong>Published:</strong> <em><%= article.created_at.strftime('%d, %b, %Y') %></em>&nbsp;&nbsp;&nbsp;
 	    <strong>Category:</strong> <% article.categories.each do |category| %>
-	                <em><%= link_to category.name, category %></em>&nbsp;
-	              <% end %>
-	      </br></br><p><%= truncate(article.content, length: 100) %></p></br>
+	                             <em><%= link_to category.name, category %></em>&nbsp;
+	                               <% end %></p>
+	      <p><%= truncate(article.content, length: 100) %></p>
+	    </div>
+	  </div>
 	  <% end %>
     </div>
     <div class="col-md-2 col-md-pull-10 sidebar">
       <div class="categories-sidebar">
-
   	    <div class="btn-group-vertical">
         <h4 class="btn btn-default disabled">Categories</h4>
           <% @categories.each do |category| %>
