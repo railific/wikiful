@@ -46,3 +46,8 @@ gem 'less-rails'
 gem 'therubyracer'
 
 gem 'bcrypt', '~> 3.1.0'
+
+group :production do
+  gem 'rails_12factor'
+end
+
